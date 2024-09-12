@@ -1,4 +1,4 @@
-package demoqahw;
+package tests;
 
 
 import com.codeborne.selenide.Configuration;
