@@ -1,4 +1,4 @@
-package demoqahw;
+package tests;
 
 
 import com.codeborne.selenide.Configuration;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class AutoTestDemoqaHwWithComments {
+public class RegistrationTestWithComments {
 
     @BeforeAll
     static void beforeAll() {
