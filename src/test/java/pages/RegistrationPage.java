@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
+
     private final  String TITLE_TEXT = "Student Registration Form";
     private final SelenideElement
             firstNameInput= $("#firstName"),
