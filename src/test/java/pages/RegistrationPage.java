@@ -1,6 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import pages.components.CalendarComponent;
+import pages.components.RegistrationResultModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -8,11 +10,13 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
-
-    private final  String TITLE_TEXT = "Student Registration Form";
+    private CalendarComponent calendarComponent = new CalendarComponent();
+    private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    private final  String TITLE_TEXT = "Practice Form";
     private final SelenideElement
             firstNameInput= $("#firstName"),
-            lastNameInput = $("#lastName");
+            lastNameInput = $("#lastName"),
+            dateOfBirthInput = $("#dateOfBirthInput");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -47,9 +51,29 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setPhone(String value) {
-        $("#usreNumber").setValue(value);
+        $("#userNumber").setValue(value);
 
         return this;
     }
+
+    public RegistrationPage setBirthDate(String day, String month, String year) {
+        dateOfBirthInput.click();
+        calendarComponent.setDate(day, month, year);
+
+        return this;
+    }
+
+    public RegistrationPage verifyResultModalAppers() {
+        registrationResultModal.verifyModalAppers();
+
+        return this;
+    }
+
+    public RegistrationPage verifyResult(String key, String value) {
+        registrationResultModal.verifyResult(key, value);
+
+        return this;
+    }
+
 
 }
